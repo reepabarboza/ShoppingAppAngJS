@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app='shoppingApp'>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>GETTING STARTED WITH BRACKETS</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <!--<link rel="stylesheet" href="main.css">-->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <style>
+            html, body, input, select, textarea
+            {
+                font-size: 1.05em !important;
+            }
+            ul{list-style-type:none;padding:0;margin:0}
+            ul li{padding:6px 2px 6px 16px;border-bottom:1px solid #ddd}
+            .margin-right{margin-right:16px!important}
+            .padding-16{padding-top:16px!important;padding-bottom:16px!important}
+            .light-grey{color:#000!important;background-color:#f1f1f1!important}
+        </style>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <script src = "//code.angularjs.org/1.5.8/angular.min.js"></script>
+        <script src="app.js"></script>
+        <script src="controllers.js"></script>
+        <!--<script src="services.js"></script>-->
+    </head>
+    <body>
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<h3>Shopping Application</h3>
+				</div>
+			</div>
+			</nav>
+		</header>
+        <div ng-controller = "shoppingController">
+            <ul class = 'light-grey'>
+				<li class = 'padding-16' ng-repeat="x in items"> {{ x }}
+                    <span class = 'margin-right' ng-click="removeItem($index)">&times;</span>
+                </li>
+            </ul>
+            
+            <p> {{errorText}} </p>
+            <input type="text" ng-model="shoppingItem" placeholder="Add shopping items here"/>
+            <button ng-click="addItem()">Add</button>
+        </div>
+        
+    </body>
+</html>
